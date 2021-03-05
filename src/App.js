@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Tasks from "./components/Tasks";
 import AddTask from "./components/AddTask";
 import About from "./components/About";
+import "./App.css";
 
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false);
