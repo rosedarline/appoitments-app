@@ -17,12 +17,6 @@
       "day": "March 13th  1pm",
       "reminder": true,
       "id": 3
-    },
-    {
-      "text": "Feed Cats",
-      "day": "Tomorrow at 7am",
-      "reminder": true,
-      "id": 4
     }
   ]
 }
