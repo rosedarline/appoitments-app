@@ -48,7 +48,7 @@ const App = () => {
         method: "POST",
         headers: {
           "Access-Control-Allow-Origin": "*",
-          Accept: "application/json;odata.metadata=full",
+          "Accept": "application/json;odata.metadata=full",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(task),
@@ -89,7 +89,7 @@ const App = () => {
         method: "PUT",
         headers: {
           "Access-Control-Allow-Origin": "*",
-          Accept: "application/json;odata.metadata=full",
+          "Accept": "application/json;odata.metadata=full",
           "Content-Type": "application/json",
         },
         body: JSON.stringify(updTask),
