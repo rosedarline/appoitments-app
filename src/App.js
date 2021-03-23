@@ -22,7 +22,9 @@ const App = () => {
 
   // Fetch Tasks
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:5000/tasks");
+    const res = await fetch(
+      "https://my-json-server.typicode.com/rosedarline/appointment-json-server/tasks"
+    );
     const data = await res.json();
 
     return data;
@@ -30,7 +32,9 @@ const App = () => {
 
   // Fetch Task
   const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`);
+    const res = await fetch(
+      `https://my-json-server.typicode.com/rosedarline/appointment-json-server/tasks/${id}`
+    );
     const data = await res.json();
 
     return data;
@@ -38,13 +42,18 @@ const App = () => {
 
   // Add Task
   const addTask = async (task) => {
-    const res = await fetch("http://localhost:5000/tasks", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(task),
-    });
+    const res = await fetch(
+      "https://my-json-server.typicode.com/rosedarline/appointment-json-server/tasks",
+      {
+        method: "POST",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Accept: "application/json;odata.metadata=full",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(task),
+      }
+    );
 
     const data = await res.json();
 
@@ -57,9 +66,12 @@ const App = () => {
 
   // Delete Task
   const deleteTask = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `https://my-json-server.typicode.com/rosedarline/appointment-json-server/tasks/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
     //We should control the response status to decide if we will change the state or not.
     res.status === 200
       ? setTasks(tasks.filter((task) => task.id !== id))
@@ -71,13 +83,18 @@ const App = () => {
     const taskToToggle = await fetchTask(id);
     const updTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(updTask),
-    });
+    const res = await fetch(
+      `https://my-json-server.typicode.com/rosedarline/appointment-json-server/tasks/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          Accept: "application/json;odata.metadata=full",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updTask),
+      }
+    );
 
     const data = await res.json();
 
