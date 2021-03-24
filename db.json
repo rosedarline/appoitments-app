@@ -2,19 +2,19 @@
   "tasks": [
     {
       "id": 1,
-      "text": "Doctors Appointment",
-      "day": "March 11th at 2pm",
+      "text": "Getting The Big Chop",
+      "day": "March 30th at 11am",
       "reminder": true
     },
     {
-      "text": "Clean House",
-      "day": "Tomorrow",
+      "text": "Hair Treatments",
+      "day": "Tomorrow at 2pm",
       "reminder": true,
       "id": 2
     },
     {
-      "text": "Board Meeting",
-      "day": "March 13th  1pm",
+      "text": "Getting Box Braids",
+      "day": "March 13th at 9am",
       "reminder": true,
       "id": 3
     }

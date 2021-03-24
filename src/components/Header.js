@@ -7,10 +7,10 @@ const Header = ({ title, onAdd, showAdd }) => {
 
   return (
     <header className="header">
-      <h1>{title}</h1>
+      <h1 style={{fontSize: "25px"}}>{title}</h1>
       {location.pathname === "/" && (
         <Button
-          color={showAdd ? "red" : "green"}
+          color={showAdd ? "#000" : "#A67F8E"}
           text={showAdd ? "Close" : "Add"}
           onClick={onAdd}
         />
@@ -20,7 +20,7 @@ const Header = ({ title, onAdd, showAdd }) => {
 };
 
 Header.defaultProps = {
-  title: "Task Tracker",
+  title: "Natural Hairpedia Appointments",
 };
 
 Header.propTypes = {
