@@ -33,14 +33,14 @@ const App = () => {
   };
 
   // Fetch Task
-  const fetchTask = async (id) => {
-    const res = await fetch(
-      `https://my-json-server.typicode.com/rosedarline/appointment-json-server/tasks/${id}`
-    );
-    const data = await res.json();
+  // const fetchTask = async (id) => {
+  //   const res = await fetch(
+  //     `https://my-json-server.typicode.com/rosedarline/appointment-json-server/tasks/${id}`
+  //   );
+  //   const data = await res.json();
 
-    return data;
-  };
+  //   return data;
+  // };
 
   // Add Task
   const addTask = async (task) => {
