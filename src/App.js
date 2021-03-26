@@ -13,15 +13,6 @@ const App = () => {
   const [tasks, setTasks] = useState([]);
   const ref = firebase.firestore().collection('appointments');
 
-  useEffect(() => {
-    const getTasks = async () => {
-      const tasksFromServer = await fetchTasks();
-      setTasks(tasksFromServer);
-    };
-
-    getTasks();
-  }, [fetchTasks]);
-
   // Fetch Tasks
   const fetchTasks = async () => {
     const res = await ref.get();
@@ -31,6 +22,17 @@ const App = () => {
 
     return data;
   };
+
+  useEffect(() => {
+    const getTasks = async () => {
+      const tasksFromServer = await fetchTasks();
+      setTasks(tasksFromServer);
+    };
+
+    getTasks();
+  }, []);
+
+  
 
   // Fetch Task
   // const fetchTask = async (id) => {
