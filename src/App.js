@@ -8,30 +8,31 @@ import AddTask from "./components/AddTask";
 import About from "./components/About";
 import "./index.css";
 
-const App = () => {
+function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
   const ref = firebase.firestore().collection('appointments');
 
-  useEffect(() => {
+  useEffect(async () => {
     const fetchTasks = async () => {
       const res = await ref.get();
       const docs = res.docs;
       const data = [];
       docs.forEach(doc => data.push(doc.data()));
-  
+
       return data;
     };
 
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks();
+      console.log('TASKS: ', tasksFromServer);
       setTasks(tasksFromServer);
     };
 
     getTasks();
-  });
+  }, []);
 
-  
+
 
   // Fetch Task
   // const fetchTask = async (id) => {
@@ -39,10 +40,8 @@ const App = () => {
   //     `https://my-json-server.typicode.com/rosedarline/appointment-json-server/tasks/${id}`
   //   );
   //   const data = await res.json();
-
   //   return data;
   // };
-
   // Add Task
   const addTask = async (task) => {
     const { serverTimestamp } = firebase.firestore.FieldValue;
@@ -50,7 +49,7 @@ const App = () => {
       ...task,
       createdAt: serverTimestamp(),
     }).then((document) => {
-      ref.doc(document.id).update({id: document.id});
+      ref.doc(document.id).update({ id: document.id });
       setTasks([...tasks, task]);
     });
   };
@@ -64,7 +63,7 @@ const App = () => {
 
   // Toggle Reminder
   const toggleReminder = async (id) => {
-    ref.doc(id).update({reminder: true});
+    ref.doc(id).update({ reminder: true });
 
     setTasks();
   };
@@ -74,8 +73,7 @@ const App = () => {
       <div className="container">
         <Header
           onAdd={() => setShowAddTask(!showAddTask)}
-          showAdd={showAddTask}
-        />
+          showAdd={showAddTask} />
         <Route
           path="/"
           exact
@@ -86,19 +84,17 @@ const App = () => {
                 <Tasks
                   tasks={tasks}
                   onDelete={deleteTask}
-                  onToggle={toggleReminder}
-                />
+                  onToggle={toggleReminder} />
               ) : (
                 "No Appointments To Show"
               )}
             </>
-          )}
-        />
+          )} />
         <Route path="/about" component={About} />
         <Footer />
       </div>
     </Router>
   );
-};
+}
 
 export default App;
