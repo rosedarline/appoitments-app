@@ -7,14 +7,19 @@ const Task = ({ task, onDelete, onToggle }) => {
       onDoubleClick={() => onToggle(task.id)}
     >
       <h3>
-        {task.text}{" "}
+        {task.name} {" "}
+        <p>{task.text}</p>
+        <p>{task.time}</p>
+        <p>{task.timestampToString}</p>
+       
         <FaTimes
-          style={{ color: "red", cursor: "pointer" }}
+          style={{ color: "red", cursor: "pointer", fontSize: "25px"}}
           onClick={() => onDelete(task.id)}
         />
       </h3>
-      <p>{task.day}</p>
-    </div>
+     
+     
+     </div>
   );
 };
 
