@@ -15,7 +15,8 @@ function App() {
 
   useEffect(() => {
     const fetchTasks = async () => {
-      const res = await ref.get();
+      const db = firebase.firestore().collection('appointments');
+      const res = await db.get();
       const docs = res.docs;
       const data = [];
       docs.forEach(doc => data.push(doc.data()));
