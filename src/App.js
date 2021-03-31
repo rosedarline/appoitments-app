@@ -13,7 +13,7 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const ref = firebase.firestore().collection('appointments');
 
-  useEffect(async () => {
+  useEffect(() => {
     const fetchTasks = async () => {
       const res = await ref.get();
       const docs = res.docs;
