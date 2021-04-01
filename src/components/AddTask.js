@@ -2,6 +2,8 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
 
+
+
 function AddTask({ onAdd }) {
   const [text, setText] = useState("");
   const [name, setName] = useState("");
@@ -61,6 +63,7 @@ function AddTask({ onAdd }) {
           <Calendar 
             onChange={onChange}
             selectedValue={day}
+            minDate={new Date()}
           />
       </div>
       <div className="form-control time">
