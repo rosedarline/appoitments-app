@@ -54,27 +54,30 @@ function AddTask({ onAdd }) {
           />
       </div>
 
-      <div className="form-control calendar">
+      <div className="form-control calendar-label">
           <label>Select Date</label>
       </div>
       <div className="form-control calendar">
           <Calendar 
             onChange={onChange}
-            value={day}
+            selectedValue={day}
           />
       </div>
+      <div className="form-control time">
+        <label>Add Time</label>
+      </div>
       <div className="form-control form-time">
-          <label>Add Time</label>
-          <select value={time} onChange={(e) => setTime(e.target.value)}>
-            <option value="9 AM" className="select-time">9 AM</option>
-            <option  value="10 AM" className="select-time">10 AM</option>
-            <option  value="11 AM" className="select-time">11 AM</option>
-            <option  value="11 AM" className="select-time">11 AM</option>
-            <option  value="12 PM" className="select-time">12 PM</option>
-            <option  value="1 PM" className="select-time">1 PM</option>
-            <option  value="2 PM" className="select-time">2 PM</option>
-            <option  value="3 PM" className="select-time">3 PM</option>
-            <option  value="4 PM" className="select-time">4 PM</option>
+          <select className="select-time" value={time} onChange={(e) => setTime(e.target.value)}>
+          <option value="Add Time">Add Time</option>
+            <option value="9 AM">9 AM</option>
+            <option  value="10 AM">10 AM</option>
+            <option  value="11 AM">11 AM</option>
+            <option  value="11 AM">11 AM</option>
+            <option  value="12 PM">12 PM</option>
+            <option  value="1 PM">1 PM</option>
+            <option  value="2 PM">2 PM</option>
+            <option  value="3 PM">3 PM</option>
+            <option  value="4 PM">4 PM</option>
           
           </select>
       </div>
